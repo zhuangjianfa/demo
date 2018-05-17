@@ -1,0 +1,67 @@
+info.build.artifact: '@project.artifactId@'
+info.build.name: '@project.name@'
+info.build.descriptio: 服务消费者demo
+info.build.version: '@project.version@'
+info.build.author: zhuangjianfa@doupai.cc
+
+server.port: 8384
+spring.application.name: customer-demo
+spring.application.schema: customer-demo
+spring.aop.auto: true
+
+logging.path: /logs/customer-demo
+logging.file:  customer-demo.log
+logging.level.root: info
+logging.level.org.springframework.data: info
+
+spring.jackson.date-format: yyyy-MM-dd HH:mm:ss.Z
+
+#注册发现配置：配置注册中心地址及用户名密码  
+eureka.instance.preferIpAddress: true
+eureka.instance.leaseRenewalIntervalInSeconds: 3
+eureka.instance.leaseExpirationDurationInSeconds: 9
+eureka.client.serviceUrl.defaultZone: http://192.168.1.200:8761/eureka/
+#actuator包自带检查
+eureka.instance.statusPageUrlPath: /actuator/info
+#actuator包自带检查
+eureka.instance.healthCheckUrlPath: /actuator/health
+eureka.client.healthcheck.enabled: true
+#actuator包自带检查
+eureka.instance.statusPageUrlPath: /actuator/info
+#actuator包自带检查
+eureka.instance.healthCheckUrlPath: /actuator/health
+#服务所在zone
+eureka.instance.metadataMap.zone: sz
+#服务优先选择相同的zone  
+eureka.client.preferSameZoneEureka: true 
+
+#打开熔断器
+feign.hystrix.enabled: true
+#原生的httpclient
+feign.httpclient.enabled: false
+#使用okhttp替换httpclient
+feign.okhttp.enabled: true
+
+ribbon.eureka.enabled: true
+#Fegin 读取超时
+ribbon.ReadTimeout: 60000
+#Fegin 连接超时
+ribbon.ConnectTimeout: 60000
+#对当前实例的重试次数
+ribbon.MaxAutoRetries: 0
+#切换实例的重试次数
+ribbon.MaxAutoRetriesNextServer: 1
+#对所有操作请求都进行重试
+ribbon.OkToRetryOnAllOperations: false
+
+##并发执行的最大线程数，默认10
+hystrix.threadpool.default.coreSize: 1000
+##BlockingQueue的最大队列数
+hystrix.threadpool.default.maxQueueSize: 1000
+##即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+hystrix.threadpool.default.queueSizeRejectionThreshold: 500
+#超时时间（默认1000ms，单位：ms）
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 10000
+#当执行失败或者请求被拒绝，是否会尝试调用hystrixCommand.getFallback() 。默认true
+hystrix.command.default.fallback.enabled: true
+management.endpoints.web.exposure.include: '*'

@@ -1,0 +1,53 @@
+info.build.artifact: '@project.artifactId@'
+info.build.name: '@project.name@'
+info.build.descriptio: 服务提供者demo
+info.build.version: '@project.version@'
+info.build.author: zhuangjianfa@doupai.cc
+
+server.port: 8383
+spring.application.name: provider-demo
+spring.application.schema: provider-demo
+spring.aop.auto: true
+
+logging.path: /logs/provider-demo
+logging.file:  provider-demo.log
+logging.level.root: info
+logging.level.org.springframework.data: info
+
+
+#注册发现配置：配置注册中心地址及用户名密码  
+eureka.instance.preferIpAddress: true
+eureka.instance.leaseRenewalIntervalInSeconds: 30
+eureka.instance.leaseExpirationDurationInSeconds: 90
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+#actuator包自带检查
+eureka.instance.statusPageUrlPath: /actuator/info
+#actuator包自带检查
+eureka.instance.healthCheckUrlPath: /actuator/health
+eureka.client.healthcheck.enabled: true
+#actuator包自带检查
+eureka.instance.statusPageUrlPath: /actuator/info
+#actuator包自带检查
+eureka.instance.healthCheckUrlPath: /actuator/health
+#服务所在zone
+eureka.instance.metadataMap.zone: sz
+#服务优先选择相同的zone  
+eureka.client.preferSameZoneEureka: true 
+
+#原生的httpclient
+feign.httpclient.enabled: false
+#使用okhttp替换httpclient
+feign.okhttp.enabled: true
+
+
+ribbon.eureka.enabled: true
+#Fegin 读取超时
+ribbon.ReadTimeout: 60000
+#Fegin 连接超时
+ribbon.ConnectTimeout: 60000
+#对当前实例的重试次数
+ribbon.MaxAutoRetries: 0
+#切换实例的重试次数
+ribbon.MaxAutoRetriesNextServer: 1
+#对所有操作请求都进行重试
+ribbon.OkToRetryOnAllOperations: false

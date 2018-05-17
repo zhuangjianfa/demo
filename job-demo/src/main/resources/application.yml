@@ -1,0 +1,11 @@
+#需要记录JOB运行情况设为true并配置数据库相关信息
+event.trace.rdb.enable: true
+event.trace.rdb.driver: com.mysql.jdbc.Driver
+event.trace.rdb.url: jdbc:mysql://localhost:3306/job?characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&useSSL=true
+event.trace.rdb.username: root
+event.trace.rdb.password: root
+
+#ZK集群地址
+elastic.job.serverList: 127.0.0.1:2181
+#存储空间
+elastic.job.namespace:  elastic-job-lite-springboot

@@ -1,0 +1,15 @@
+# 默认的配置
+spring.rabbitmq.addresses: localhost:5672
+spring.rabbitmq.username: guest
+spring.rabbitmq.password: guest
+spring.rabbitmq.publisher-confirms: true
+spring.rabbitmq.virtual-host: /
+spring.rabbitmq.amqpcontainer.prefetch: 10
+
+# 自定义配置,多个rabbitmq的配置
+spring.rabbitmq.push.addresses: localhost:5672
+spring.rabbitmq.push.username: guest
+spring.rabbitmq.push.password: guest
+spring.rabbitmq.push.publisher-confirms: true
+spring.rabbitmq.push.virtual-host: push
+spring.rabbitmq.push.listener.acknowledge-mode: MANUAL
