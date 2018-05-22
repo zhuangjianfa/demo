@@ -10,6 +10,8 @@ package com.owner.springcloud.provider.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +37,8 @@ import com.owner.springcloud.provider.resp.UserResp;
  */
 @RestController
 public class ProviderController implements IUserClient {
+
+    private static Logger log = LoggerFactory.getLogger(ProviderController.class);
 
     @Autowired
     private UserService userService;

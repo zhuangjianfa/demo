@@ -18,15 +18,15 @@ import com.owner.springcloud.provider.resp.UserResp;
 @FeignClient(name ="provider-demo")
 public interface IUserClient {
     
-    @RequestMapping(value = "/api/v1/user/update",method = RequestMethod.POST)
+    @RequestMapping(value = "/provider/v1/user/update",method = RequestMethod.POST)
     Result<?> updateUser(UpdateUserReq userReq);
     
-    @RequestMapping(value = "/api/v1/user",method = RequestMethod.POST)
+    @RequestMapping(value = "/provider/v1/user",method = RequestMethod.POST)
     Result<UserListResp> getUserList();
     
-    @RequestMapping(value = "/api/v1/user/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/provider/v1/user/{id}",method = RequestMethod.POST)
     Result<UserResp> getUserById(Integer id);
     
-    @RequestMapping(value = "/api/v1/user/save",method = RequestMethod.POST)
+    @RequestMapping(value = "/provider/v1/user/save",method = RequestMethod.POST)
     Result<?> save(SaveUserReq userReq);
 }

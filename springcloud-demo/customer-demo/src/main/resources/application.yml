@@ -13,6 +13,7 @@ logging.path: /logs/customer-demo
 logging.file:  customer-demo.log
 logging.level.root: info
 logging.level.org.springframework.data: info
+logging.level.org.springframework.web.servlet.DispatcherServlet: DEBUG
 
 spring.jackson.date-format: yyyy-MM-dd HH:mm:ss.Z
 
@@ -20,7 +21,7 @@ spring.jackson.date-format: yyyy-MM-dd HH:mm:ss.Z
 eureka.instance.preferIpAddress: true
 eureka.instance.leaseRenewalIntervalInSeconds: 3
 eureka.instance.leaseExpirationDurationInSeconds: 9
-eureka.client.serviceUrl.defaultZone: http://192.168.1.200:8761/eureka/
+eureka.client.serviceUrl.defaultZone: http://server1:8761/eureka/
 #actuator包自带检查
 eureka.instance.statusPageUrlPath: /actuator/info
 #actuator包自带检查
@@ -65,3 +66,11 @@ hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 10000
 #当执行失败或者请求被拒绝，是否会尝试调用hystrixCommand.getFallback() 。默认true
 hystrix.command.default.fallback.enabled: true
 management.endpoints.web.exposure.include: '*'
+
+#服务链路配置
+spring: 
+  sleuth:  
+    sampler:  
+      probability: 1  
+  zipkin:  
+    base-url: http://localhost:9411
